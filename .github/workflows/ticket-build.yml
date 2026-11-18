@@ -1,5 +1,4 @@
-- name: Build TicketPlugin
-  run: find . -name "build.gradle.kts" -not -path "./.git/*"
+name: Build TicketPlugin
 
 on: push
 
@@ -17,10 +16,13 @@ jobs:
       - uses: gradle/actions/setup-gradle@v5
 
       - name: Build
-        working-directory: TicketPlugin-Quelle/Ticket-Plugin
-        run: gradle build
+        run: |
+          DIR=$(dirname "$(find . -name settings.gradle.kts -not -path './.git/*' | head -1)")
+          echo "Projektordner: $DIR"
+          cd "$DIR"
+          gradle build
 
       - uses: actions/upload-artifact@v5
         with:
           name: TicketPlugin-jar
-          path: TicketPlugin-Quelle/Ticket-Plugin/build/libs/*.jar
+          path: "**/build/libs/*.jar"
