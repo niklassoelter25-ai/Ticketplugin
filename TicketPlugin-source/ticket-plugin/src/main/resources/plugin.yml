@@ -1,0 +1,16 @@
+name: TicketPlugin
+version: 1.0.0
+main: de.server.ticket.TicketPlugin
+api-version: "26.3"
+description: Öffnet mit /ticket ein Ticket im Discord
+commands:
+  ticket:
+    description: Ticket im Discord öffnen
+    usage: /ticket <Beschreibung>
+permissions:
+  ticket.use:
+    description: Erlaubt /ticket
+    default: true
+  ticket.reload:
+    description: Erlaubt /ticket reload
+    default: op

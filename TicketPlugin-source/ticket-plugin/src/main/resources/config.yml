@@ -1,0 +1,25 @@
+# Discord-Webhook-URL (Kanaleinstellungen -> Integrationen -> Webhooks)
+webhook-url: "HIER_WEBHOOK_URL_EINFUEGEN"
+
+# true  = Webhook gehört zu einem FORUM-Kanal -> jedes Ticket wird ein eigener Post/Thread
+# false = normaler Textkanal -> Ticket wird als Nachricht gepostet
+forum-channel: true
+
+# Optional: Rollen-ID, die bei jedem Ticket gepingt wird ("" = kein Ping)
+ping-role-id: ""
+
+# Sekunden zwischen zwei Tickets pro Spieler
+cooldown-seconds: 60
+
+# Mindestlänge der Beschreibung
+min-length: 5
+
+messages:
+  prefix: "<gray>[<gold>Ticket</gold>]</gray> "
+  usage: "<red>Benutzung: /ticket <Beschreibung>"
+  too-short: "<red>Bitte beschreibe dein Anliegen genauer."
+  cooldown: "<red>Bitte warte noch <seconds> Sekunden."
+  sent: "<green>Dein Ticket wurde an das Team gesendet!"
+  error: "<red>Ticket konnte nicht gesendet werden. Bitte melde dich direkt im Discord."
+  not-configured: "<red>Das Ticket-System ist noch nicht eingerichtet."
+  reloaded: "<green>Config neu geladen."
