@@ -1,4 +1,5 @@
 - name: Build TicketPlugin
+  run: find . -name "build.gradle.kts" -not -path "./.git/*"
 
 on: push
 
