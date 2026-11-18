@@ -1,25 +1,45 @@
-# Discord-Webhook-URL (Kanaleinstellungen -> Integrationen -> Webhooks)
+# Discord-Webhook-URL des FORUM-Kanals (Kanaleinstellungen -> Integrationen -> Webhooks)
+# GEHEIM: nur auf dem Server eintragen, niemals ins GitHub-Repo hochladen!
 webhook-url: "HIER_WEBHOOK_URL_EINFUEGEN"
 
-# true  = Webhook gehört zu einem FORUM-Kanal -> jedes Ticket wird ein eigener Post/Thread
-# false = normaler Textkanal -> Ticket wird als Nachricht gepostet
+# Bot-Token (Discord Developer Portal -> Bot -> Reset Token)
+# Nur damit kommen Antworten aus Discord ins Spiel. GEHEIM, genauso behandeln wie die Webhook-URL.
+bot-token: "HIER_BOT_TOKEN_EINFUEGEN"
+
+# true  = Webhook gehoert zu einem FORUM-Kanal -> jedes Ticket wird ein eigener Post
+#         (nur dann funktionieren Antworten in beide Richtungen)
+# false = normaler Textkanal -> Ticket wird nur als Nachricht gepostet (ohne Antworten)
 forum-channel: true
 
-# Optional: Rollen-ID, die bei jedem Ticket gepingt wird ("" = kein Ping)
-ping-role-id: ""
+# Rolle, die bei jedem neuen Ticket gepingt wird ("" = kein Ping)
+# Team Trolle:
+ping-role-id: "1447304683713462364"
 
-# Sekunden zwischen zwei Tickets pro Spieler
+# Wie oft (in Sekunden) nach neuen Antworten in Discord gesucht wird
+poll-interval-seconds: 5
+
+# Schreibt das Team dieses Wort in den Forum-Post, wird das Ticket geschlossen
+close-keyword: "!close"
+
+# Sekunden zwischen zwei neuen Tickets pro Spieler
 cooldown-seconds: 60
 
-# Mindestlänge der Beschreibung
+# Mindestlaenge der Beschreibung
 min-length: 5
 
 messages:
   prefix: "<gray>[<gold>Ticket</gold>]</gray> "
-  usage: "<red>Benutzung: /ticket <Beschreibung>"
+  usage: "<red>Benutzung: /ticket [Beschreibung]"
+  usage-reply: "<red>Benutzung: /ticket antworten [Nachricht]"
   too-short: "<red>Bitte beschreibe dein Anliegen genauer."
   cooldown: "<red>Bitte warte noch <seconds> Sekunden."
   sent: "<green>Dein Ticket wurde an das Team gesendet!"
+  sent-twoway: "<green>Dein Ticket wurde an das Team gesendet! <gray>Antworten vom Team bekommst du hier im Chat. Schreib mit <white>/ticket [Text]</white> zurueck, schliessen mit <white>/ticket schliessen</white>."
+  reply-sent: "<green>Nachricht an das Team gesendet."
+  no-open-ticket: "<red>Du hast kein offenes Ticket. Erstelle eins mit /ticket [Beschreibung]"
+  from-team: "<gold><author></gold> <dark_gray>(Team)</dark_gray><gray>:</gray> <white><message>"
+  closed-by-team: "<yellow>Dein Ticket wurde vom Team geschlossen."
+  closed-by-player: "<green>Dein Ticket wurde geschlossen."
   error: "<red>Ticket konnte nicht gesendet werden. Bitte melde dich direkt im Discord."
   not-configured: "<red>Das Ticket-System ist noch nicht eingerichtet."
   reloaded: "<green>Config neu geladen."
