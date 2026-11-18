@@ -1,4 +1,4 @@
-name: Build TicketPlugin
+- name: Build TicketPlugin
 
 on: push
 
