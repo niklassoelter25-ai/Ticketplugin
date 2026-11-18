@@ -1,16 +1,19 @@
 name: TicketPlugin
-version: 1.0.0
-main: de.server.ticket.TicketPlugin
+version: "1.1"
+main: de.ticketplugin.TicketPlugin
 api-version: "26.3"
-description: Öffnet mit /ticket ein Ticket im Discord
+description: Ticket-System mit Discord-Anbindung (Zwei-Wege-Chat)
+
 commands:
   ticket:
-    description: Ticket im Discord öffnen
-    usage: /ticket <Beschreibung>
+    description: Ticket erstellen, beantworten oder schliessen
+    usage: /ticket [Beschreibung]
+    permission: ticket.use
+
 permissions:
   ticket.use:
-    description: Erlaubt /ticket
+    description: Tickets erstellen und beantworten
     default: true
-  ticket.reload:
-    description: Erlaubt /ticket reload
+  ticket.admin:
+    description: Config neu laden (/ticket reload)
     default: op
